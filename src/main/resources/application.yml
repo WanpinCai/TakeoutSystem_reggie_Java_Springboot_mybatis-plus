@@ -1,6 +1,5 @@
 server:
-  port: 8080
-
+  port: 8989
 spring:
   application:
     name: reggie_take_out
@@ -40,8 +39,8 @@ spring:
 #    props:
 #      sql:
 #        show: true #开启SQL显示，默认false
-  main:
-    allow-bean-definition-overriding: true
+#  main:
+#    allow-bean-definition-overriding: true
 
 
 

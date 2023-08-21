@@ -27,14 +27,11 @@ public class LoginCheckFilter implements Filter {
         String requestURI = request.getRequestURI();
         log.info("拦截到请求：{}",requestURI);
         String[] urls = new String[]{
-//                "/employee/login",
-//                "/employee/logout",
-//                "backend/**",
-//                "front/**",
-                "/reggie_take_out/employee/login",
-                "/reggie_take_out/employee/logout",
-                "/reggie_take_out/backend/**",
-                "/reggie_take_out/front/**"
+                "/employee/login",
+                "/employee/logout",
+                "/backend/**",
+                "/front/**",
+
         };
 
         //2判断请求是否需要处理
