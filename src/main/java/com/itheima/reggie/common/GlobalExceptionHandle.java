@@ -14,6 +14,11 @@ import java.sql.SQLIntegrityConstraintViolationException;
 @ControllerAdvice(annotations = {RestController.class, Controller.class})
 public class GlobalExceptionHandle {
 
+    /**
+     * 异常处理方法
+     * @param ex
+     * @return
+     */
     @ExceptionHandler(SQLIntegrityConstraintViolationException.class)
     public Result<String> exceptionHandle(SQLIntegrityConstraintViolationException ex){
         log.error(ex.getMessage());

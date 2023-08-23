@@ -81,13 +81,13 @@ public class EmployeeController {
         //设置初始密码123456，进行md5加密处理
         employee.setPassword(DigestUtils.md5DigestAsHex("123456".getBytes()));
 
-        employee.setCreateTime(LocalDateTime.now());
-        employee.setUpdateTime(LocalDateTime.now());
+//        employee.setCreateTime(LocalDateTime.now());
+//        employee.setUpdateTime(LocalDateTime.now());
 
-        Long empId = (Long)request.getSession().getAttribute("employee");
+//        Long empId = (Long)request.getSession().getAttribute("employee");
 
-        employee.setCreateUser(empId);
-        employee.setUpdateUser(empId);
+//        employee.setCreateUser(empId);
+//        employee.setUpdateUser(empId);
 
         employeeService.save(employee);
 
@@ -127,11 +127,26 @@ public class EmployeeController {
     public Result<String> update(HttpServletRequest request, @RequestBody Employee employee){
         log.info(employee.toString());
 
-        Long empId = (long)request.getSession().getAttribute("employee");
-        employee.setUpdateTime(LocalDateTime.now());
-        employee.setUpdateUser(empId);
+        long id = Thread.currentThread().getId();
+        log.info("线程id为：{}",id);
+
+//        Long empId = (long)request.getSession().getAttribute("employee");
+//        employee.setUpdateTime(LocalDateTime.now());
+//        employee.setUpdateUser(empId);
         employeeService.updateById(employee);
         return Result.success("Edit is success!");
+    }
+
+    /**
+     * 根据id查询员工信息
+     * @param id
+     * @return
+     */
+    @GetMapping("/{id}")
+    public Result<Employee> getById(@PathVariable Long id){
+        log.info("base on Id inquery the employee info");
+        Employee employee = employeeService.getById(id);
+        return Result.success(employee);
     }
 
 }
