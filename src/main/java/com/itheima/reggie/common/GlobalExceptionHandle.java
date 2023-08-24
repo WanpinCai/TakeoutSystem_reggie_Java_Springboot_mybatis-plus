@@ -30,4 +30,16 @@ public class GlobalExceptionHandle {
         }
         return Result.error("失败了");
     }
+
+    /**
+     * 异常处理方法
+     * @param ex
+     * @return
+     */
+    @ExceptionHandler(CustomException.class)
+    public Result<String> exceptionHandle(CustomException ex){
+        log.error(ex.getMessage());
+
+        return Result.error(ex.getMessage());
+    }
 }

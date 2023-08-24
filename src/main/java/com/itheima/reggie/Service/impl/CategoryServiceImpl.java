@@ -10,10 +10,12 @@ import com.itheima.reggie.entity.Category;
 import com.itheima.reggie.entity.Dish;
 import com.itheima.reggie.entity.Setmeal;
 import com.itheima.reggie.mapper.CategoryMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> implements CategoryService {
 
 
